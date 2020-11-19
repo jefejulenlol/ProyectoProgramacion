@@ -10,6 +10,10 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import java.sql.*;
+
+import conexionesBasesDeDatos.ConexionLogin;
+
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -81,8 +85,11 @@ public class VentanaPrincipal {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//////////
-				
+			//Establezco la  conexion a la base de datos al presionar el boton de Login para comprobar credenciales	
+			ConexionLogin conexion = new ConexionLogin();
+			conexion.ConexionBDLogin();
+	
+			
 			}
 		});
 		btnLogin.setBounds(240, 244, 97, 25);
