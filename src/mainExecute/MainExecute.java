@@ -1,4 +1,7 @@
 package mainExecute;
+
+import programacionVisual.VentanaPrincipal;
+
 /**
  * 
  * @author Julen Peralta
@@ -12,6 +15,7 @@ public class MainExecute {
 		// TODO Auto-generated method stub
 		
 		
+		VentanaPrincipal.main(args);
 		
 
 	}
