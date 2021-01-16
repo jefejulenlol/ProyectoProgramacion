@@ -1,5 +1,11 @@
 package main;
 
+/**
+ * 
+ * @author Julen
+ *@version final
+ */
+
 import programacion.visual.VentanaPrincipal;
 
 /**
@@ -11,10 +17,9 @@ import programacion.visual.VentanaPrincipal;
 
 public class MainExecute {
 
+	//La clase para ejecutar el programa desde el inicio es esta.
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		
+			
 		VentanaPrincipal.main(args);
 		
 
