@@ -248,6 +248,15 @@ public class VentanaVersionAdmin {
 		frame.getContentPane().add(btnVolver);
 		
 		JButton btnAccesoAPagos = new JButton("Acceso a Pagos");
+		btnAccesoAPagos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				VentanaPagos vtn = new VentanaPagos();
+				vtn.mostrarVentanaPagos();
+				frame.setVisible(false);
+				
+			}
+		});
 		btnAccesoAPagos.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnAccesoAPagos.setForeground(Color.RED);
 		btnAccesoAPagos.setBounds(447, 163, 148, 25);

@@ -190,4 +190,17 @@ public class VentanaPagos {
 		btnVolverAlMenu.setBounds(226, 343, 123, 25);
 		frame.getContentPane().add(btnVolverAlMenu);
 	}
+	
+	public void mostrarVentanaPagos() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaPagos window = new VentanaPagos();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 }
