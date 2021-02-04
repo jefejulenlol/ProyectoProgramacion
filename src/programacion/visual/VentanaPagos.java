@@ -11,7 +11,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import acceso.ficheros.EscrituraYLecturaBD;
+import acceso.bd.EscrituraYLecturaBD;
 import productos.y.herencia.Producto;
 
 import javax.swing.JLabel;

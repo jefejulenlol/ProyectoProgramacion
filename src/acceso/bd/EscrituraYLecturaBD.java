@@ -1,4 +1,4 @@
-package acceso.ficheros;
+package acceso.bd;
 /**
  * 
  * @author Julen

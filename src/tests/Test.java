@@ -2,7 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import acceso.ficheros.Usuario;
+import acceso.bd.Usuario;
 import productos.y.herencia.Producto;
 import productos.y.herencia.Tarjeta;
 import productos.y.herencia.TarjetaCliente;

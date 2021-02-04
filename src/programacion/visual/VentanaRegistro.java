@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JTextField;
 
-import acceso.ficheros.EscrituraYLecturaBD;
+import acceso.bd.EscrituraYLecturaBD;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;

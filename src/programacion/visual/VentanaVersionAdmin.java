@@ -15,7 +15,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
-import acceso.ficheros.EscrituraYLecturaBD;
+import acceso.bd.EscrituraYLecturaBD;
 import productos.y.herencia.Producto;
 
 import javax.swing.JButton;
@@ -32,6 +32,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import java.awt.Color;
+import javax.swing.JScrollPane;
 
 public class VentanaVersionAdmin {
 
@@ -92,6 +93,13 @@ public class VentanaVersionAdmin {
 		JRadioButton rdbtnHombre = new JRadioButton("Hombre");
 		rdbtnHombre.setBounds(77, 62, 81, 25);
 		frame.getContentPane().add(rdbtnHombre);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(188, 52, 224, 240);
+		frame.getContentPane().add(scrollPane);
+		
+		JList list = new JList();
+		scrollPane.setViewportView(list);
 		
 		JLabel label = new JLabel("Elija la temporada:");
 		label.setFont(new Font("Tahoma", Font.BOLD, 17));
@@ -183,10 +191,6 @@ public class VentanaVersionAdmin {
 		});
 		btnAnadir.setBounds(37, 312, 97, 25);
 		frame.getContentPane().add(btnAnadir);
-		
-		JList list = new JList();
-		list.setBounds(178, 65, 239, 227);
-		frame.getContentPane().add(list);
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
 		JLabel lblElijaElPrecio = new JLabel("Elija el precio:");
@@ -265,6 +269,18 @@ public class VentanaVersionAdmin {
 		JLabel lblbubblesortAqui = new JLabel("(BubbleSort) Aqui");
 		lblbubblesortAqui.setBounds(462, 143, 133, 16);
 		frame.getContentPane().add(lblbubblesortAqui);
+		
+		JButton button = new JButton("Modificar Usuarios");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+			}
+		});
+		button.setBounds(447, 213, 148, 25);
+		frame.getContentPane().add(button);
+
 
 	}
 	

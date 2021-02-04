@@ -16,7 +16,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
-import acceso.ficheros.EscrituraYLecturaBD;
+import acceso.bd.EscrituraYLecturaBD;
 import excepciones.FiltradoNoSeleccionadoException;
 import productos.y.herencia.Producto;
 import productos.y.herencia.Tarjeta;
@@ -31,6 +31,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class VentanaUsuario{
 
@@ -75,6 +76,13 @@ public class VentanaUsuario{
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		lblNewLabel.setBounds(179, 0, 218, 39);
 		frmBienvenidoUsuario.getContentPane().add(lblNewLabel);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(189, 52, 194, 240);
+		frmBienvenidoUsuario.getContentPane().add(scrollPane);
+		
+		JList list = new JList();
+		scrollPane.setViewportView(list);
 		
 		JLabel lblElijaSuSexo = new JLabel("Elija su sexo:");
 		lblElijaSuSexo.setFont(new Font("Tahoma", Font.BOLD, 17));
@@ -141,10 +149,6 @@ public class VentanaUsuario{
 		JLabel lblDisfruteDeSu = new JLabel("Disfrute de su compra");
 		lblDisfruteDeSu.setBounds(222, 36, 136, 16);
 		frmBienvenidoUsuario.getContentPane().add(lblDisfruteDeSu);
-		
-		JList list = new JList();
-		list.setBounds(179, 62, 204, 227);
-		frmBienvenidoUsuario.getContentPane().add(list);
 		
 		/**
 		 *Filtra lo que el usuario busca para ver si se encuentra en stock en la tienda y prevee distintos errores que puedan suceder, como que el usuario no seleccione la talla, sexo etc y también implementa la excepcion realizada en el paquete de excepciones
@@ -278,6 +282,7 @@ public class VentanaUsuario{
 		});
 		btnAyudaInigo.setBounds(12, 17, 112, 25);
 		frmBienvenidoUsuario.getContentPane().add(btnAyudaInigo);
+		
 		
 		
 	}
