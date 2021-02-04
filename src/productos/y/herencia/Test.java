@@ -1,11 +1,8 @@
-package tests;
+package productos.y.herencia;
 
 import static org.junit.Assert.*;
 
 import acceso.bd.UsuarioCompleto;
-import productos.y.herencia.Producto;
-import productos.y.herencia.Tarjeta;
-import productos.y.herencia.TarjetaCliente;
 
 public class Test {
 
