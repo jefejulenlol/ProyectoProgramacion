@@ -164,4 +164,18 @@ public class VentanaModificarYBorrarUsuarios {
 		button.setBounds(489, 208, 51, 25);
 		frame.getContentPane().add(button);
 	}
+	
+	public void mostrarVentanaModificarYBorrarUsuarios() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaModificarYBorrarUsuarios window = new VentanaModificarYBorrarUsuarios();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 }

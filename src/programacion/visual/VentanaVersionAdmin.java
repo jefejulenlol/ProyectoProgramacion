@@ -36,7 +36,7 @@ import javax.swing.JScrollPane;
 
 public class VentanaVersionAdmin {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField textFieldTalla;
 	private JTextField textFieldPrecio;
 
@@ -275,12 +275,33 @@ public class VentanaVersionAdmin {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
+				VentanaModificarYBorrarUsuarios vtn = new VentanaModificarYBorrarUsuarios();
+				vtn.mostrarVentanaModificarYBorrarUsuarios();
+				frame.setVisible(false);	
 				
 			}
 		});
 		button.setBounds(447, 213, 148, 25);
 		frame.getContentPane().add(button);
+		
+		JButton button_1 = new JButton("Acceso a Pagos");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaPagosMergeSort vtn = new VentanaPagosMergeSort();
+				vtn.mostrarVentanaPagosMergeSort();
+				frame.setVisible(false);
+				
+			}
+		});
+		button_1.setForeground(Color.RED);
+		button_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		button_1.setBounds(447, 99, 148, 25);
+		frame.getContentPane().add(button_1);
+		
+		JLabel lblMergesortAqui = new JLabel("MergeSort aqui");
+		lblMergesortAqui.setBounds(474, 71, 103, 16);
+		frame.getContentPane().add(lblMergesortAqui);
 
 
 	}
