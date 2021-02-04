@@ -76,7 +76,7 @@ public class EscrituraYLecturaBD
      * @param password introducida por el usuario via teclado
      * @return un boolean de si ha encontrado una coincidencia en nombre y contrasenya en la BD con la introducida por el usuario
      */
-    public boolean selectLoginData(String name, String password)
+    public static boolean selectLoginData(String name, String password)
     {
         String sql = "SELECT * FROM Usuarios";
         boolean success=false;
@@ -226,7 +226,7 @@ public class EscrituraYLecturaBD
      * @param poder el nivel de poder del usuario, admin o usuario
      * 
      */
-    public void insert(String usuario, String pass, String poder)
+    public static void insert(String usuario, String pass, String poder)
     {
         String sql = "Insert into Usuarios (Nombre,Pass,Poder) values (?,?,?)";
 
@@ -260,7 +260,7 @@ public class EscrituraYLecturaBD
      * @param precio , su precio
      * 
      */
-    public void insertProducto(String sexo, String temporadaDeRopa, String tipoProducto, int talla, String color, int precio)
+    public static void insertProducto(String sexo, String temporadaDeRopa, String tipoProducto, int talla, String color, int precio)
     {
         String sql = "Insert into Productos (Sexo,TemporadaDeRopa,TipoProducto,Talla,Color,Precio) values (?,?,?,?,?,?)";
 
