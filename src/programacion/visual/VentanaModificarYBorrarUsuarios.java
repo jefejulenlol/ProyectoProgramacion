@@ -5,11 +5,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+
+import org.apache.commons.collections4.BidiMap;
+
+import acceso.bd.EscrituraYLecturaBD;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaModificarYBorrarUsuarios {
 
@@ -49,6 +56,8 @@ public class VentanaModificarYBorrarUsuarios {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		
 		JLabel lblModificaYElimina = new JLabel("Modifica y Elimina los usuarios y sus contrasenyas");
 		lblModificaYElimina.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblModificaYElimina.setBounds(61, 13, 439, 36);
@@ -62,10 +71,33 @@ public class VentanaModificarYBorrarUsuarios {
 		scrollPane.setViewportView(list);
 		
 		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(191, 329, 97, 25);
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				int index = list.getSelectedIndex();
+			    if (index != -1) {
+			    	String seleccion = listModel.getElementAt(index);
+			        listModel.remove(index);
+			        
+			        BidiMap<Integer, String> bidiMap = EscrituraYLecturaBD.cargarUsuarios();
+			        EscrituraYLecturaBD.eliminarUsuario(bidiMap.getKey(seleccion));
+			}
+				
+				
+			}
+		});
+		btnEliminar.setBounds(403, 299, 97, 25);
 		frame.getContentPane().add(btnEliminar);
 		
 		JButton btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				/////
+				
+			}
+		});
 		btnModificar.setBounds(399, 251, 97, 25);
 		frame.getContentPane().add(btnModificar);
 		
@@ -86,5 +118,27 @@ public class VentanaModificarYBorrarUsuarios {
 		textField_1.setBounds(407, 173, 116, 22);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
+		
+		JButton btnCargarTodo = new JButton("Cargar Todo");
+		btnCargarTodo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				BidiMap<Integer, String> bidiMap = EscrituraYLecturaBD.cargarUsuarios();
+				
+				for (int i=0;i<bidiMap.size();i++) {					
+					String mostrado = bidiMap.get(i+1);
+					listModel.addElement(mostrado);
+					list.setModel(listModel);
+				}
+				
+				
+			}
+		});
+		btnCargarTodo.setBounds(195, 324, 123, 25);
+		frame.getContentPane().add(btnCargarTodo);
+		
+		JLabel lblNombresDeUser = new JLabel("Nombres de User:");
+		lblNombresDeUser.setBounds(12, 81, 105, 16);
+		frame.getContentPane().add(lblNombresDeUser);
 	}
 }

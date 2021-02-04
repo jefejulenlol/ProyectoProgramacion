@@ -6,7 +6,7 @@ package acceso.bd;
  *@version final
  */
 
-public class Usuario {
+public class UsuarioCompleto{
 
 	private String usuario;
 	private String password;
@@ -18,7 +18,7 @@ public class Usuario {
      * @param admin, si es admin o no 
      * 
      */
-	public Usuario(String usuario, String password, boolean admin) {
+	public UsuarioCompleto(String usuario, String password, boolean admin) {
 		this.usuario = usuario;
 		this.password = password;
 		this.admin = admin;

@@ -2,7 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import acceso.bd.Usuario;
+import acceso.bd.UsuarioCompleto;
 import productos.y.herencia.Producto;
 import productos.y.herencia.Tarjeta;
 import productos.y.herencia.TarjetaCliente;
@@ -12,7 +12,7 @@ public class Test {
 	@org.junit.Test
 	public void testGetUsuario() {
 		
-		Usuario u1 = new Usuario("hola", null, false);
+		UsuarioCompleto u1 = new UsuarioCompleto("hola", null, false);
 		assertEquals(u1.getUsuario(), "hola");
 		
 	}
@@ -20,7 +20,7 @@ public class Test {
 	@org.junit.Test
 	public void testSetUsuario() {
 		
-		Usuario u1 = new Usuario(null, null, false);
+		UsuarioCompleto u1 = new UsuarioCompleto(null, null, false);
 		u1.setUsuario("hola");;
 		assertEquals(u1.getUsuario(), "hola");
 		
@@ -29,7 +29,7 @@ public class Test {
 	@org.junit.Test
 	public void testSetPassword() {
 		
-		Usuario u1 = new Usuario(null,null, false);
+		UsuarioCompleto u1 = new UsuarioCompleto(null,null, false);
 		u1.setPassword("hola");
 		assertEquals(u1.getPassword(), "hola");
 		
@@ -38,7 +38,7 @@ public class Test {
 	@org.junit.Test
 	public void testGetPassword() {
 		
-		Usuario u1 = new Usuario(null, "hola", false);
+		UsuarioCompleto u1 = new UsuarioCompleto(null, "hola", false);
 
 		assertEquals(u1.getPassword(), "hola");
 		
@@ -47,7 +47,7 @@ public class Test {
 	@org.junit.Test
 	public void testIsAdmin() {
 		
-		Usuario u1 = new Usuario(null, null, true);
+		UsuarioCompleto u1 = new UsuarioCompleto(null, null, true);
 
 		assertEquals(u1.isAdmin(), true);
 		
@@ -56,7 +56,7 @@ public class Test {
 	@org.junit.Test
 	public void testSetAdmin() {
 		
-		Usuario u1 = new Usuario(null, null, false);
+		UsuarioCompleto u1 = new UsuarioCompleto(null, null, false);
 		u1.setAdmin(true);
 		assertEquals(u1.isAdmin(), true);
 		
@@ -65,7 +65,7 @@ public class Test {
 	@org.junit.Test
 	public void testToString() {
 		
-		Usuario u1 = new Usuario("hola", "soy julen", false);
+		UsuarioCompleto u1 = new UsuarioCompleto("hola", "soy julen", false);
 
 		assertEquals(u1.toString(), "hola soy julen");
 		

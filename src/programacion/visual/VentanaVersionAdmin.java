@@ -208,6 +208,7 @@ public class VentanaVersionAdmin {
 				ArrayList<Producto> arrayList = new ArrayList<Producto>();
 				arrayList = EscrituraYLecturaBD.selectProductoData();
 				
+				
 				for (int i=0;i<arrayList.size();i++) {
 					String mostrado = arrayList.get(i).getSexo() + " "+arrayList.get(i).getTipoProducto() + " "+arrayList.get(i).getPrecio()+"€" +" Talla: "+arrayList.get(i).getTalla();
 					listModel.addElement(mostrado);

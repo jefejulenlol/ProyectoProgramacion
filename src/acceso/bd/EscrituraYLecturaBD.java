@@ -12,6 +12,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.collections4.BidiMap;
+import org.apache.commons.collections4.MapIterator;
+import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 
 import productos.y.herencia.Producto;
 import programacion.visual.VentanaAdmin;
@@ -116,6 +123,69 @@ public class EscrituraYLecturaBD
         }
 		return success;
     }
+    
+    public static BidiMap<Integer, String> cargarUsuarios()
+    {
+        String sql = "SELECT * FROM Usuarios";
+        BidiMap<Integer, String> bidiMap = new DualHashBidiMap();
+        
+        try
+                (
+                		Connection conn = connectDB("Usuarioss.db");
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql)
+                )
+        {
+
+            // loop through the result set
+        	
+            while (rs.next())
+            {
+                System.out.println
+                        (
+                        		rs.getInt("ID") +  "\t" +
+                        		rs.getString("Nombre") +  "\t" +
+                                rs.getString("Pass") + "\t" +
+                                rs.getString("Poder")
+                        );
+                
+                int ID = rs.getInt("ID");
+                String nombre =rs.getString("Nombre");
+                //String pass = rs.getString("Pass");
+                
+                //UsuarioParaHashMap user = new UsuarioParaHashMap(nombre, pass);
+                bidiMap.put(ID, nombre);
+                
+
+            }
+            
+            closeConnection("Usuarioss.db");
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+		return bidiMap;
+    }
+    
+    public static void eliminarUsuario(int seleccion) {
+    	String sql = "DELETE FROM Usuarios WHERE ID = "+seleccion;
+    	try
+        (
+        		Connection conn = connectDB("Usuarioss.db");
+                Statement stmt  = conn.createStatement();
+                ResultSet rs    = stmt.executeQuery(sql)
+        )
+{
+    		closeConnection("Usuarioss.db");
+			} catch (SQLException e)
+{
+				System.out.println(e.getMessage());
+}
+
+
+    	
+    }
+    
     /**
      * Registra en la base de datos los datos introducidos por el usuario en su registro
      * @param usuario el usuario de registro

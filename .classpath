@@ -16,5 +16,7 @@
 	<classpathentry kind="lib" path="C:/Users/Julep/.p2/pool/plugins/org.eclipse.ui.forms_3.8.0.v20190519-1034.jar" sourcepath="C:/Users/Julep/.p2/pool/plugins/org.eclipse.ui.forms_3.8.0.v20190519-1034.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Julep/Desktop/Eclipse workspace/ProyectoProgramacion/jars/sqlite-jdbc-3.28.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/Julep/Desktop/Eclipse workspace/ProyectoProgramacion/commons-collections4-4.1/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Julep/Desktop/Eclipse workspace/ProyectoProgramacion/commons-collections4-4.1/commons-collections4-4.1-javadoc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
