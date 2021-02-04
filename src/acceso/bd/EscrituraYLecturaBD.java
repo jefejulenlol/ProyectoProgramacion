@@ -124,6 +124,11 @@ public class EscrituraYLecturaBD
 		return success;
     }
     
+    /**
+     * Lee todas las filas y columnas de la base de datos
+     * @return un BidiMap con el id y el usuario
+     */
+    
     public static BidiMap<Integer, String> cargarUsuarios()
     {
         String sql = "SELECT * FROM Usuarios";
@@ -151,9 +156,7 @@ public class EscrituraYLecturaBD
                 
                 int ID = rs.getInt("ID");
                 String nombre =rs.getString("Nombre");
-                //String pass = rs.getString("Pass");
-                
-                //UsuarioParaHashMap user = new UsuarioParaHashMap(nombre, pass);
+
                 bidiMap.put(ID, nombre);
                 
 
@@ -166,6 +169,10 @@ public class EscrituraYLecturaBD
         }
 		return bidiMap;
     }
+    
+    /**
+     * Elimina un usuario por su ID
+     */
     
     public static void eliminarUsuario(int seleccion) {
     	String sql = "DELETE FROM Usuarios WHERE ID = "+seleccion;
@@ -184,6 +191,32 @@ public class EscrituraYLecturaBD
 
 
     	
+    }
+    
+    /**
+     * Realiza un Update de los datos de la BD de un usuario en concreto al seleccionar en VetanaModificarYBorrarUsuarios uno en la lista y rellenar el User y la Pass nueva
+     */
+    
+    public static void updateUsuario(int ID, String user, String pass){
+        String sql = "UPDATE Usuarios\r\n" + 
+        		"SET Nombre = '"+user+"', Pass= '"+pass+"'\r\n" + 
+        		"WHERE ID = "+ID;
+        
+        try
+                (
+                		Connection conn = connectDB("Usuarioss.db");
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql)
+                )
+        {
+
+            // loop through the result set
+            
+            closeConnection("Usuarioss.db");
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     
     /**

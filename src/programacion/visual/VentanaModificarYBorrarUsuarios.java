@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -87,18 +88,29 @@ public class VentanaModificarYBorrarUsuarios {
 				
 			}
 		});
-		btnEliminar.setBounds(403, 299, 97, 25);
+		btnEliminar.setBounds(426, 258, 97, 25);
 		frame.getContentPane().add(btnEliminar);
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				/////
+				String nombre =textField.getText();
+				String pass = textField_1.getText();
+				
+				int index = list.getSelectedIndex();
+			    if (index != -1) {
+			    	String seleccion = listModel.getElementAt(index);
+			        listModel.remove(index);
+			        
+			        BidiMap<Integer, String> bidiMap = EscrituraYLecturaBD.cargarUsuarios();
+			        EscrituraYLecturaBD.updateUsuario(bidiMap.getKey(seleccion), nombre, pass);
+			        //EscrituraYLecturaBD.eliminarUsuario(bidiMap.getKey(seleccion));
+			}
 				
 			}
 		});
-		btnModificar.setBounds(399, 251, 97, 25);
+		btnModificar.setBounds(380, 208, 97, 25);
 		frame.getContentPane().add(btnModificar);
 		
 		JLabel lblName = new JLabel("Name:");
@@ -140,5 +152,16 @@ public class VentanaModificarYBorrarUsuarios {
 		JLabel lblNombresDeUser = new JLabel("Nombres de User:");
 		lblNombresDeUser.setBounds(12, 81, 105, 16);
 		frame.getContentPane().add(lblNombresDeUser);
+		
+		JButton button = new JButton("?");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JOptionPane.showMessageDialog(null, "Para modificar un usuario seleccione el usuario a modificar en la Jlist y posteriormente rellene el nuevo usuario y pass");
+				
+			}
+		});
+		button.setBounds(489, 208, 51, 25);
+		frame.getContentPane().add(button);
 	}
 }
